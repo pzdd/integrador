@@ -1,0 +1,30 @@
+#criando novo bd
+CREATE DATABASE controle_acesso
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+#criando novo schema	
+CREATE SCHEMA controle_acesso
+    AUTHORIZATION postgres;
+#criando tabela
+CREATE SEQUENCE  hibernate_sequence  MINVALUE 1 MAXVALUE
+999999999999999999 INCREMENT BY 1 START WITH 1;
+
+CREATE TABLE controle_acesso.acesso
+(
+    id bigint NOT NULL,
+    nome character varying(255),
+    cpf character varying(255),
+    contato character varying(255),
+    destino character varying(255),
+    motivo character varying(255),
+    obs character varying(255),
+    data character varying(255),
+    hora character varying(255),
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS controle_acesso.acesso
+    OWNER to postgres;
